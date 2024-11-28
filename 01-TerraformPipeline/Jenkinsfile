@@ -1,27 +1,14 @@
 pipeline {
     agent any
-    
+    environment {
+        GITHUB_TOKEN = credentials('git-cred')
+    }
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main',changelog: 'false',credentialsId: 'git-creden',git url: 'https://github.com/Greeshma-Babu-tech/Jenkins.git'
+                git url: 'https://github.com/Greeshma-Babu-tech/Jenkins.git', branch: 'main', credentialsId: 'git-cred'
             }
         }
         // Other stages...
-        stage('Terraform Init') {
-             steps {
-                 sh 'terraform init'
-              }
-            }
-         stage('Terraform Plan') {
-             steps { 
-                sh 'terraform plan'
-                }
-            }
-        stage('Terraform Apply') {
-             steps {
-                 sh 'terraform apply -auto-approve'
-              }
-            }
     }
 }
