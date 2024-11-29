@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout From Git') {
             steps {
-                git url: 'https://github.com/Greeshma-Babu-tech/Jenkins.git', git branch: 'master', credentialsId: 'git-cred'
+                git url: 'https://github.com/Greeshma-Babu-tech/Jenkins.git', branch: 'master', credentialsId: 'git-cred'
             }
         }
         stage('Terraform Version') {
