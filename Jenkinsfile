@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout From Git') {
             steps {
-                git branch: 'main' , credentialsId: 'git-creden', url: 'https://github.com/Greeshma-Babu-tech/Jenkins.git'
+                git branch: 'main' , credentialsId: 'git-cred', url: 'https://github.com/Greeshma-Babu-tech/Jenkins.git'
             }
         }
         stage('Terraform Version') {
@@ -13,7 +13,7 @@ pipeline {
                 }
             }
         }
-       /* stage('Terraform Init') {
+       stage('Terraform Init') {
             steps {
                 script {
                     sh 'terraform init'
@@ -52,6 +52,6 @@ pipeline {
                     sh 'terraform destroy --auto-approve'
                 }
             }
-        }*/
+        }
     }
 }
