@@ -2,6 +2,8 @@ pipeline {
     agent any
     environment { 
         PATH = "/usr/local/bin:${env.PATH}" 
+        AWS_ACCESS_KEY_ID = credentials('aws-access-key-id') 
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
     }
     stages {
         stage('Checkout From Git') {
